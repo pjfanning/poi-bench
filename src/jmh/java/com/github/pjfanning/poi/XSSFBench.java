@@ -27,8 +27,8 @@ import java.io.IOException;
  */
 public class XSSFBench extends BenchmarkLauncher {
 
-    private static final int ROW_COUNT = 100;
-    private static final int CELL_COUNT = 100;
+    private static final int ROW_COUNT = 50;
+    private static final int CELL_COUNT = 500;
 
     private byte[] workbookBytes;
 

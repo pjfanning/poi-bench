@@ -8,10 +8,12 @@ version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven { url 'https://repository.apache.org/content/repositories/staging' }
 }
 
 dependencies {
     implementation 'org.apache.poi:poi-ooxml:5.5.1'
+    //implementation 'org.apache.xmlbeans:xmlbeans:5.4.0-RC1'
     testImplementation platform('org.junit:junit-bom:5.14.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
