@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id "me.champeau.jmh" version "0.7.3"
+}
+
+group = 'com.github.pjfanning'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.poi:poi-ooxml:5.5.1'
+    testImplementation platform('org.junit:junit-bom:5.14.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jmhJar {
+    manifest {
+        attributes 'Multi-Release': 'true'
+    }
+}
+
+// see https://github.com/melix/jmh-gradle-plugin?tab=readme-ov-file#configuration-options
+jmh {
+    includes = ['com.github.pjfanning.poi.XSSFBench']
+}
