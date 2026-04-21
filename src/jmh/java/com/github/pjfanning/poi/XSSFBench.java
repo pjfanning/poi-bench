@@ -27,8 +27,8 @@ import java.io.IOException;
  */
 public class XSSFBench extends BenchmarkLauncher {
 
-    private static final int ROW_COUNT = 1000;
-    private static final int CELL_COUNT = 1000;
+    private static final int ROW_COUNT = 100;
+    private static final int CELL_COUNT = 100;
 
     private byte[] workbookBytes;
 
@@ -51,17 +51,17 @@ public class XSSFBench extends BenchmarkLauncher {
                 Row row = sheet.createRow(r);
                 for (int c = 0; c < CELL_COUNT; c++) {
                     Cell cell = row.createCell(c);
-                    cell.setCellValue((double) (r * CELL_COUNT + c));
+                    cell.setCellValue("abcdef");
                 }
             }
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            ByteArrayOutputStream out = new ByteArrayOutputStream(48 * 1024);
             workbook.write(out);
             return out.toByteArray();
         }
     }
 
     /**
-     * Benchmark 1: measures how long it takes to create a workbook with 1,000 rows × 1,000 cells
+     * Benchmark 1: measures how long it takes to create a workbook with multiple rows × multiple cells
      * and serialise it to a byte array.
      */
     @Benchmark
