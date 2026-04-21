@@ -61,7 +61,7 @@ public class XSSFBench extends BenchmarkLauncher {
     }
 
     /**
-     * Creates an XSSFWorkbook with one sheet of {@value ROW_COUNT} rows × {@link #cellCount}
+     * Creates an XSSFWorkbook with one sheet of {@value ROW_COUNT} rows × {@code cellCount}
      * cells, writes it to a {@link ByteArrayOutputStream}, and returns the raw bytes.
      *
      * @return the serialised workbook as a byte array
